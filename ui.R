@@ -6,10 +6,9 @@
 #
 #    http://shiny.rstudio.com/
 #
-setwd("c:/Users/BENOIT/Documents/projetopen/")
 library(shiny)
 library(readxl)
-Tabledonnee <- read_excel("nutrisara/Tabledonnee.xls")
+Tabledonnee <- read_excel("Tabledonnee.xls")
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
