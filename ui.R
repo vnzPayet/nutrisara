@@ -6,19 +6,26 @@
 #
 #    http://shiny.rstudio.com/
 #
+# Installation de la library (kableExtra)
+
+# Chargement des libraries
+library(knitr)
+library(ggplot2)
 library(shiny)
 library(readxl)
 library(shinythemes)
+library(dplyr)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
 
-# Define UI for application that draws a histogram
+
 shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
                   titlePanel(tags$img(src="Logo.png",width="450px",height="150px")),
                   titlePanel("Calculer la valeur nutritionnelle de son assiette, c'est facile !"),
                   navbarPage(icon("home"),
-                  tabPanel(("Introduction"),
+
+                  tabPanel(("Introduction"), #Explication du fonctionnement de l'application
                            fluidRow(
                                     
                                     br(),
@@ -56,8 +63,10 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                       p("Source des données : ",a(href="https://ciqual.anses.fr/"," La base Ciqual"),style="color:black; text-align:center"),width = 4,style="background-color:#EAECEE; border-radius: 10px")),
                                     br(),
                                   ),
-                           
-                  tabPanel(("La Calculette"),
+                  tabPanel(("La Base Ciqual"), #Onglet de la base Ciqual
+                           DT::datatable(Tabledonnee)
+                           ),
+                  tabPanel(("La Calculette"), #Onglet de la calculette
                           textInput(inputId = "Grammage", label = " Par défaut, la valeur sera pour 100g", value = "", width =NULL, placeholder =NULL  ),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
                           dateInput(inputId = "IdDate", label = "date de création", value =NULL,min =NULL, max =NULL, format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
@@ -66,8 +75,8 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                                          selected = F,choices =c(Tabledonnee$alim_nom_fr)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
-                                          value = 0, min = 0, max = F, step = 5)))),
+                                          value = 0, min = 0, max = F, step = 5))),
+                  tabPanel("Analyse",tableOutput("Calctab")))
+                  )
+)
 
-                  
-)
-)

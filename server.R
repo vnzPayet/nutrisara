@@ -7,13 +7,17 @@
 #    http://shiny.rstudio.com/
 #
 
+
 library(shiny)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
-    output$introduction <-renderText({c("Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un argument selon sa quantité, afin d'obtenir une assiette ?quilibr?e")})
-    output$calculette <-renderText({c("Entrer votre plat/recette et d?finissez vos quantit?s")})
+    
+    #output$listingre <- reactive(ingre1)
+    #output$Calctab <- renderTable(Tableau <- filter(Tableau, alim_nom_fr == reactive(ingre1)))
+    output$introduction <-renderText({c("Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un argument selon sa quantité, afin d'obtenir une assiette équilibrée")})
+    output$calculette <-renderText({c("Entrer votre plat/recette et définissez vos quantités")})
     
     
     
@@ -26,7 +30,7 @@ shinyServer(function(input, output) {
             #file.copy("report.Rmd", tempReport, overwrite = TRUE)
             
             # Set up parameters to pass to Rmd document
-            #params <- list(nom = input$nompre, dateCre = input$idDateCre, tab = head(cars))
+            #params <- list(nom = input$nompre, dateCre = input$idDateCre, nrecette = input$idrecette, tab = head(cars))
             
             # Knit the document, passing in the `params` list, and eval it in a
             # child of the global environment (this isolates the code in the document

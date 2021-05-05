@@ -1,12 +1,13 @@
 ---
-title: "report"
-author: "H.Favet"
+title: "Rapport"
+author: "NutrIsara"
 date: "04/05/2021"
 output: pdf_document
 params:
   nom: NA
   dateCre: NA
   tab : NA
+  nrecette : NA
 ---
 
 # *Informations générales* :
@@ -21,6 +22,12 @@ Nom de l'opérateur : `r params$nom`
 params$dateCre
 ```
 Date de création : `r params$dateCre`
+
+```{r nrecette, eval=FALSE, echo=FALSE}
+# The `params` object is available in the document.
+params$nrecette
+```
+Recette : `r params$nrecette`
 
 # *Valeur nutritionnelle"
 
