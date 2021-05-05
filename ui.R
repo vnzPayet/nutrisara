@@ -8,14 +8,26 @@
 #
 library(shiny)
 library(readxl)
+
 Tabledonnee <- read_excel("Tabledonnee.xls")
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  wellPanel(
-    selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                selected = F,choices =c(Tabledonnee$alim_nom_fr)),
-    numericInput(inputId = "gram1", label = "Sélectionner le grammage",
-                 value = 0, min = 0, max = F, step = 5))
-
-))
+  
+  titlePanel("NutrISARA"),# title
+  sidebarLayout(
+    sidebarPanel("La Calculette Nutritionelle"),
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Introduction",verbatimTextOutput("Introduction")),
+    
+        tabPanel("La calculette",tableOutput("La Calculette")),
+             wellPanel(
+                selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
+                            selected = F,choices =c(Tabledonnee$alim_nom_fr)),
+                numericInput(inputId = "gram1", label = "Sélectionner le grammage",
+                             value = 0, min = 0, max = F, step = 5))
+    ))
+  )
+)
+)
