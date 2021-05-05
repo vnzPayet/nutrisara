@@ -17,13 +17,13 @@ shinyUI(fluidPage(
       wellPanel(
         selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                 selected = F,choices =c(Tabledonnee$alim_nom_fr)),
-        numericInput(inputId = "gram1", label = "sélectionner le grammage",
+        numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                  value = 0, min = 0, max = F, step = 5)),
       wellPanel(
         selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                 selected = F,choices =c(Tabledonnee$alim_nom_fr)),
-        numericInput(inputId = "gram1", label = "sélectionner le grammage",
+        numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                  value = 0, min = 0, max = F, step = 5))),
-      mainPanel("La il va falloir mettre le tableau d'output !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"))
+      mainPanel("La il va falloir mettre le tableau d'output !!!!!!!!!"))
 
 ))
