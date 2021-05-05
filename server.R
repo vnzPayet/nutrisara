@@ -7,14 +7,16 @@
 #    http://shiny.rstudio.com/
 #
 
+
 library(shiny)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-
+    
     output$introduction <-renderText({c("Ceci est l'introduction, on y parle de truc super, comme par exemple ce qu'est cette application, a quoi elle sert etc etc")})
     output$calculette <-renderText({c("Ici, vous pouvez entrer les ingrédients de votre plat/recette, vous pouvez par à la suite définir la quantité de cette ingrédient")})
-    
+    output$listingre <- reactive(ingre1)
+    output$Calctab <- renderTable(Tableau <- filter(Tableau, alim_nom_fr == reactive(ingre1)))
     
     
     #PARTIE EXPORTATION EN PDF (noms a modifier)
