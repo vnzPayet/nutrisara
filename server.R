@@ -12,8 +12,8 @@ library(shiny)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
-    output$introduction <-renderText({c("Ceci est l'introduction, on y parle de truc super, comme par exemple ce qu'est cette application, a quoi elle sert etc etc")})
-    output$calculette <-renderText({c("Ici, vous pouvez entrer les ingrÃ©dients de votre plat/recette, vous pouvez par Ã  la suite dÃ©finir la quantitÃ© de cette ingrÃ©dient")})
+    output$introduction <-renderText({c("Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un argument afin d'obtenir une assiette équilibrée")})
+    output$calculette <-renderText({c("Entrer votre plat/recette et définissez vos quantités")})
     
     
     
