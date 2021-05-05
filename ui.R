@@ -12,7 +12,10 @@ Tabledonnee <- read_excel("Tabledonnee.xls")
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
+  wellPanel(
+    selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
+                selected = F,choices =c(Tabledonnee$alim_nom_fr)),
+    numericInput(inputId = "gram1", label = "sélectionner le grammage",
+                 value = 0, min = 0, max = 100, step = 5))
 
-    selectInput(inputId = "idSelect", label = "Select among the list: ",
-                selected = F,choices =c(Tabledonnee$alim_nom_fr))
 ))
