@@ -26,5 +26,5 @@ Date de création : `r params$dateCre`
 
 ```{r tableau, eval=TRUE, echo=TRUE}
 # The `params` object is available in the document.
-params$tab
+knitr::kable(params$tab, caption = "Exemple de tableau")
 ```
