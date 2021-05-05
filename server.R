@@ -12,17 +12,8 @@ library(shiny)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
-    output$distPlot <- renderPlot({
-
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
-
-    })
-    
+    output$introduction <-renderText({c("Ceci est l'introduction, on y parle de truc super, comme par exemple ce qu'est cette application, a quoi elle sert etc etc")})
+    output$calculette <-renderText({c("Ici, vous pouvez entrer les ingrédients de votre plat/recette, vous pouvez par à la suite définir la quantité de cette ingrédient")})
     
     
     
