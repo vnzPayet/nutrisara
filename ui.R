@@ -15,7 +15,7 @@ shinyUI(fluidPage(
   wellPanel(
     selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                 selected = F,choices =c(Tabledonnee$alim_nom_fr)),
-    numericInput(inputId = "gram1", label = "sélectionner le grammage",
-                 value = 0, min = 0, max = 100, step = 5))
+    numericInput(inputId = "gram1", label = "Sélectionner le grammage",
+                 value = 0, min = 0, max = F, step = 5))
 
 ))
