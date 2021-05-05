@@ -20,6 +20,7 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(
         tabPanel("Introduction",textOutput(outputId= "introduction")),
+        textInput(inputId = "intro", label = "Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un ingrédient, pour vous permettre d'avoir des assietes équilibrés.", value = "", width =NULL, placeholder =NULL),
     
         tabPanel("La calculette",textOutput(outputId= "calculette"),tableOutput("La Calculette"),
              wellPanel(
