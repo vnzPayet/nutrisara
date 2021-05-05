@@ -6,6 +6,7 @@ output: pdf_document
 params:
   nom: NA
   dateCre: NA
+  tab : NA
 ---
 
 # *Informations générales* :
