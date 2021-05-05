@@ -34,7 +34,6 @@ Tabledonnee <- read_excel("Tabledonnee.xls")
     #
      #   tabPanel("Analyse",tableOutput("Calctab")))) 
   
-
 shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
                   titlePanel(tags$img(src="Logo.png",width="450px",height="150px")),
@@ -51,6 +50,3 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                       selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ", selected = F,choices =c(Tabledonnee$alim_nom_fr)),
                       numericInput(inputId = "gram1", label = "Sélectionner le grammage", value = 0, min = 0, max = F, step = 5)),
                     tabPanel("Analyse",tableOutput("Calctab")))))
-
-
-
