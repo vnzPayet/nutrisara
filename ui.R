@@ -11,7 +11,6 @@ library(readxl)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
 
-# Define UI for application that draws a histogram
 shinyUI(fluidPage(
 
   titlePanel("NutrISARA"),# title
@@ -21,7 +20,10 @@ shinyUI(fluidPage(
       tabsetPanel(
         tabPanel("Introduction",textOutput(outputId= "introduction")),
         textInput(inputId = "intro", label = "Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un ingrédient, pour vous permettre d'avoir des assietes équilibrés.", value = "", width =NULL, placeholder =NULL),
-    
+        textInput(inputId = "Grammage", label = " Par défaut, la valeur sera pour 100g", value = "", width =NULL, placeholder =NULL  ),
+        textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
+        dateInput(inputId = "IdDate", label = "date de création", value =NULL,min =NULL, max =NULL, format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
+        dateInput(inputId ="IDdate", label="date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
         tabPanel("La calculette",textOutput(outputId= "calculette"),tableOutput("La Calculette"),
              wellPanel(
                 selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
@@ -32,3 +34,4 @@ shinyUI(fluidPage(
   )
 )
 )
+
