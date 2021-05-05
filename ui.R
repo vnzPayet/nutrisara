@@ -19,9 +19,9 @@ shinyUI(fluidPage(
     sidebarPanel("La Calculette Nutritionelle"),
     mainPanel(
       tabsetPanel(
-        tabPanel("Introduction",verbatimTextOutput("Introduction")),
+        tabPanel("Introduction",textOutput(outputId= "introduction")),
     
-        tabPanel("La calculette",tableOutput("La Calculette"),
+        tabPanel("La calculette",textOutput(outputId= "calculette"),tableOutput("La Calculette"),
              wellPanel(
                 selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                             selected = F,choices =c(Tabledonnee$alim_nom_fr)),
