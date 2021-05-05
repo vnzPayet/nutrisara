@@ -13,7 +13,7 @@ Tabledonnee <- read_excel("Tabledonnee.xls")
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  
+
   titlePanel("NutrISARA"),# title
   sidebarLayout(
     sidebarPanel("La Calculette Nutritionelle"),
