@@ -77,6 +77,6 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                          selected = F,choices =c(Tabledonnee$alim_nom_fr)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                           value = 0, min = 0, max = F, step = 5))),
-                  tabPanel("Analyse",tableOutput("Calctab")))
+                  tabPanel("L'Analyse",tableOutput("Calctab")))
                   )
 )
