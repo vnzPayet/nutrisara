@@ -15,6 +15,7 @@ library(shiny)
 library(readxl)
 library(shinythemes)
 library(dplyr)
+library(rmarkdown)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
 
@@ -23,9 +24,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
                   titlePanel(tags$img(src="Logo.png",width="450px",height="150px")),
                   titlePanel("Calculer la valeur nutritionnelle de son assiette, c'est facile !"),
-                  navbarPage(icon("home"),
-
-
+                  navbarPage(icon("utensils"),
                   tabPanel(("Introduction"), #Explication du fonctionnement de l'application
                            fluidRow(
                                     
@@ -62,8 +61,9 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           fluidRow(column(width = 4),
                                     column(
                                       p("Source des données : ",a(href="https://ciqual.anses.fr/"," La base Ciqual"),style="color:black; text-align:center"),width = 4,style="background-color:#EAECEE; border-radius: 10px")),
-                                    br(),
+                                    
                                   ),
+                 
                   tabPanel(("La Base Ciqual"), #Onglet de la base Ciqual
                            DT::datatable(Tabledonnee)
                            ),
@@ -77,6 +77,13 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                          selected = F,choices =c(Tabledonnee$alim_nom_fr)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                           value = 0, min = 0, max = F, step = 5))),
-                  tabPanel("Analyse",tableOutput("Calctab")))
-                  )
-)
+                  tabPanel("L'Analyse",tableOutput("Calctab"),
+                           )),
+                  
+                  hr(),
+                  p(em(strong("Developp par des étudiants de la Promo50 : Module Open ")),
+                  br("Brice Levasseur Théo Masselis Honorine Favet Marianne Manry Valentine Mouche Célia Devillard Benoit Barré  Mariama Issa Emma MANSON"),style ="text-align:center",
+                  br(tags$img(src="téléchargement.png",width="450px",height="150px"))),
+               ))      
+       
+
