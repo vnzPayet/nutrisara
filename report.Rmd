@@ -57,4 +57,9 @@ nrecette2<-newtab[c(1:9),]
 ggplot(nrecette2, aes(x = factor(1), fill =class)) +
   geom_bar(width = 1) +
   coord_polar(theta = "y")
+
+#autre graph
+ggplot(data = nrecette2) +
+  geom_point(mapping = aes(x = class, y= pourcentage, color=nom))
+
 ```
