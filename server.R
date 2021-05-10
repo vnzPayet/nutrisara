@@ -1,6 +1,6 @@
 #
 # This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
+# Application by clicking 'Run App' above.
 #
 # Find out more about building applications with Shiny here:
 #
@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
     
     
     
-    #PARTIE EXPORTATION EN PDF (noms a modifier)
+    #PARTIE EXPORTATION EN PDF (noms à modifier)
     output$report <- downloadHandler(
         filename = "report.pdf",
         content = function(file) {
@@ -39,7 +39,7 @@ shinyServer(function(input, output) {
             params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$idrecette, tab = head(cars))
             
             # Knit the document, passing in the `params` list, and eval it in a
-            # child of the global environment (this isolates the code in the document
+            # Child of the global environment (this isolates the code in the document
             # from the code in this app).
             rmarkdown::render(tempReport, output_file = file,
                               params = params,
