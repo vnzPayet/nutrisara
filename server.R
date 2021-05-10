@@ -1,6 +1,6 @@
 #
 # This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
+# Application by clicking 'Run App' above.
 #
 # Find out more about building applications with Shiny here:
 #
@@ -26,19 +26,27 @@ shinyServer(function(input, output) {
     #output$calculette <-renderText({c("Entrer votre plat/recette et définissez vos quantités")})
     
     
-    
+
     #PARTIE EXPORTATION EN PDF (noms a modifier)
+
     output$report <- downloadHandler(
-        filename = "report.pdf",
+        filename = paste0('Fiche_Recette_',paste0(input$recette),'.pdf'),
         content = function(file) {
             
             tempReport <- file.path(".\\www", "report.Rmd")
             file.copy("report.Rmd", tempReport, overwrite = TRUE)
             
             # Set up parameters to pass to Rmd document
+<<<<<<< HEAD
             params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
+=======
+            params <- list(nom = "toto", dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
+            params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$idrecette, tab = head(cars))
+
+            
+>>>>>>> c2ce1b7ca9bb29109fcfeb176c9d21e93a37d2dc
             # Knit the document, passing in the `params` list, and eval it in a
-            # child of the global environment (this isolates the code in the document
+            # Child of the global environment (this isolates the code in the document
             # from the code in this app).
             rmarkdown::render(tempReport, output_file = file,
                               params = params,
@@ -48,8 +56,7 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
-            file.copy(from = "report.pdf",
-                      to = paste0('Fiche_Recette_',paste0(params$nrecette),'.pdf'))
+            
         })
 })
 
