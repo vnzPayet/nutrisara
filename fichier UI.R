@@ -18,7 +18,7 @@ library(dplyr)
 library(rmarkdown)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
-tab <- read.csv2("TabTest.csv", dec=",")
+
 
 shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
@@ -68,20 +68,16 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            DT::datatable(Tabledonnee)
                            ),
                   tabPanel(("La Calculette"), #Onglet de la calculette
-                          textInput(inputId = "recette",label = "Nom de votre recette", value = "", width =NULL, placeholder=NULL),
-                          dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
-                          dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
+                          textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
+                          dateInput(inputId = "IdDate", label = "date de création", value =NULL,min =NULL, max =NULL, format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
+                          dateInput(inputId ="IDdate", label="date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
                            wellPanel(
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                                         selected = F,choices =c(Tabledonnee$nom)),
+                                         selected = F,choices =c(Tabledonnee$alim_nom_fr)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
-
-                                          value = 0, min = 0, max = F, step = 5)),
-                          downloadButton("report", "Generer un rapport")),
-                  tabPanel("L'Analyse",tableOutput("tab")
-
+                                          value = 0, min = 0, max = F, step = 5))),
+                  tabPanel("L'Analyse",tableOutput("Calctab"),
                            )),
-                
                   
                   hr(),
                   p(strong("Développé par des étudiants de la Promo50/ISARA : Module Open "),style ="text-align:center",
