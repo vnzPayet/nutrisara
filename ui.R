@@ -80,7 +80,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                              style="background-color:#EAECEE;padding:20px; border-radius: 10px"),
                   br(),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
-                          textInput(inputId = "recette",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
+                          textInput(inputId = "operateur",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
                           fluidRow(column(dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6),
                                   column(dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
 
