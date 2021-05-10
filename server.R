@@ -7,17 +7,23 @@
 #    http://shiny.rstudio.com/
 #
 
-
 library(shiny)
+
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
     
+    #tab %>% filter(alim_nom_fr==selection) %>% select(2)
+    #reactive(input$ingre1)
+        output$tab <-renderTable({tab %>% filter(nom==input$ingre1)}) 
+        #%>%  tab ["input$ingre1", 2] tab ["input$ingre1", 2]*input$gram1/100 })
+        #filter(nom==input$ingre1) 
+    
     #output$listingre <- reactive(ingre1)
     #output$Calctab <- renderTable(Tableau <- filter(Tableau, alim_nom_fr == reactive(ingre1)))
-    output$introduction <-renderText({c("Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un argument selon sa quantité, afin d'obtenir une assiette équilibrée")})
-    output$calculette <-renderText({c("Entrer votre plat/recette et définissez vos quantités")})
+    #output$introduction <-renderText({c("Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un argument selon sa quantité, afin d'obtenir une assiette équilibrée")})
+    #output$calculette <-renderText({c("Entrer votre plat/recette et définissez vos quantités")})
     
     
     
