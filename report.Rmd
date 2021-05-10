@@ -6,6 +6,7 @@ output: pdf_document
 params:
   nom: NA
   dateCre: NA
+  datemsj : NA
   tab : NA
   nrecette : NA
 ---
@@ -22,6 +23,11 @@ Nom de l'opérateur : `r params$nom`
 params$dateCre
 ```
 Date de création : `r params$dateCre`
+```{r datemsj, eval=FALSE, echo=FALSE}
+# The `params` object is available in the document.
+params$datemsj
+```
+Date de mise à jour : `r params$datemsj`
 
 ```{r nrecette, eval=FALSE, echo=FALSE}
 # The `params` object is available in the document.
