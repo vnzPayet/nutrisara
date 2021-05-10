@@ -43,5 +43,7 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
+            file.copy(from = "report.pdf",
+                      to = paste0('Fiche_Recette_',paste0(params$nrecette),'.pdf'))
         })
 })
