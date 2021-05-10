@@ -22,26 +22,26 @@ shinyServer(function(input, output) {
     
     
     #PARTIE EXPORTATION EN PDF (noms a modifier)
-    #output$report <- downloadHandler(
-        #filename = "report.pdf",
-        #content = function(file) {
+    output$report <- downloadHandler(
+        filename = "report.pdf",
+        content = function(file) {
             
-            #tempReport <- file.path(tempdir(), "report.Rmd")
-            #file.copy("report.Rmd", tempReport, overwrite = TRUE)
+            tempReport <- file.path(tempdir(), "report.Rmd")
+            file.copy("report.Rmd", tempReport, overwrite = TRUE)
             
             # Set up parameters to pass to Rmd document
-            #params <- list(nom = input$nompre, dateCre = input$idDateCre, datemsj = input$IDdate, nrecette = input$idrecette, tab = head(cars))
+            params <- list(nom = "toto", dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$idrecette, tab = head(cars))
             
             # Knit the document, passing in the `params` list, and eval it in a
             # child of the global environment (this isolates the code in the document
             # from the code in this app).
-            #rmarkdown::render(tempReport, output_file = file,
-                              #params = params,
-                              #envir = new.env(parent = globalenv())
-            #)
+            rmarkdown::render(tempReport, output_file = file,
+                              params = params,
+                              envir = new.env(parent = globalenv())
+            )
             
-            #output$dateText  <- renderText({
-                #paste("input$date is", as.character(input$date))
-            #})
-        #})
+            output$dateText  <- renderText({
+                paste("input$date is", as.character(input$date))
+            })
+        })
 })
