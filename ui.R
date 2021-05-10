@@ -16,9 +16,14 @@ library(readxl)
 library(shinythemes)
 library(dplyr)
 library(rmarkdown)
+library(tidyr)
+library(ggplot2)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
 tab <- read.csv2("TabTest.csv", dec=",")
+#tabtest2<-read.csv("Tabledonnee2.csv", header=TRUE, sep=";",encoding = "UTF-8")
+#newtab2<-pivot_longer(tabtest2,c("Eau","Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AG_satures","Sel"))
+#colnames(newtab2)<-c("nom","name","value")
 
 shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
@@ -90,6 +95,11 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
 
                                           value = 0, min = 0, max = F, step = 5)),
+                  ##Graphique proportions
+                  #selectInput("nom", "ingredient",choices = c(newtab2[,1])),
+                  #mainPanel(
+                   # plotOutput("pointPlot"),
+                  
                           downloadButton("report", "Generer un rapport")),
                   tabPanel("L'Analyse",tableOutput("tab")
 
