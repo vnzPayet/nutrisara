@@ -45,12 +45,17 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                      width=10,style="background-color:#EAECEE;border-radius: 10px"),
                                      br(),
                                      column(
-                                     p("Et pour uiliser notre calculette il vous suffriras d'enregister votre nom :",style="color:black;text-align:justify"),
-                                     p('Nom et Prenom',style="color:grey;border:1px solid black;background-color:white"),
-                                     p("La date du jour :",style="color:black;text-align:justify"),
-                                     p('JJ/MM/AAAA',style="color:grey;border:1px solid black;background-color:white"),
-                                     p("Le nom de la recette :",style="color:black;text-align:justify"),
-                                     p('Nom de la recette',style="color:grey;border:1px solid black;background-color:white"),
+                                     p(" Et pour uiliser notre calculette il vous suffriras d'enregister la dénomination de la recette :",style="color:black;text-align:justify"),
+                                     p('Dénomination de la recette',style="color:grey;border:1px solid black;background-color:white"),
+                                     p(" Le nom de l'opérateur :",style="color:black;text-align:justify"),
+                                     p(' Nom et Prénom',style="color:grey;border:1px solid black;background-color:white"),
+                                     p(" La date de création :",style="color:black;text-align:justify"),
+                                     p(' AAAA/MM/JJ',style="color:grey;border:1px solid black;background-color:white"),
+                                     p(" La date de mise à jour :",style="color:black;text-align:justify"),
+                                     p(' AAAA/MM/JJ',style="color:grey;border:1px solid black;background-color:white"),
+                                     p(" Puis sélectionner le ou les types d'ingrédients et le ou leurs grammages (g):",style="color:black;text-align:justify"),
+                                     column(p(' Ingrédients',style="color:grey;border:1px solid black;background-color:white"),width=6),
+                                     column(p(' Grammages (g)',style="color:grey;border:1px solid black;background-color:white"),width=6),
                                      width=10,style="background-color:#EAECEE;border-radius: 10px")),
                           br(),
                           fluidRow(
@@ -60,7 +65,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           br(),
                           fluidRow(column(width = 4),
                                     column(
-                                      p("Source des données : ",a(href="https://ciqual.anses.fr/"," La base Ciqual"),style="color:black; text-align:center"),width = 4,style="background-color:#EAECEE; border-radius: 10px")),
+                                      p("Source des données : ",a(href="https://ciqual.anses.fr/",em(" La base Ciqual")),style="color:black; text-align:center"),width = 4,style="background-color:#EAECEE; border-radius: 10px")),
                                     
                                   ),
                  
@@ -68,9 +73,15 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            DT::datatable(Tabledonnee)
                            ),
                   tabPanel(("La Calculette"), #Onglet de la calculette
+                           fluidRow(
+                           br(),
+                             p("Merci de ", strong("remplir tout les champs")," et ", strong("d'éditer")," la valeur nutritionel de votre recette :",style="color:black;text-align:justify"),
+                             style="background-color:#EAECEE;padding:20px; border-radius: 10px"),
+                  br(),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
-                          dateInput(inputId = "IdDate", label = "date de création", value =NULL,min =NULL, max =NULL, format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
-                          dateInput(inputId ="IDdate", label="date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
+                          textInput(inputId = "recette",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
+                          fluidRow(column(dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6),
+                                  column(dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
                            wellPanel(
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                                          selected = F,choices =c(Tabledonnee$alim_nom_fr)),
@@ -85,8 +96,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                   br(
                   p(em("Brice Levasseur Théo Masselis Honorine Favet Marianne Manry Valentine Mouche Célia Devillard"),
                   p(em("Benoit Barré  Mariama Issa Emma MANSON"),style ="text-align:center"),style ="text-align:center"),
-                  p(tags$img(src="logoisara.jpg",width="150px",height="80px"),style ="text-align:center"))),
-                  hr(),
+                  p(tags$img(src="logoisara.png",width="150px",height="80px"),style ="text-align:center"))), hr(),
             ))      
        
 
