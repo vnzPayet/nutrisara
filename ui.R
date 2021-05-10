@@ -68,7 +68,6 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            DT::datatable(Tabledonnee)
                            ),
                   tabPanel(("La Calculette"), #Onglet de la calculette
-                          textInput(inputId = "Grammage", label = " Par défaut, la valeur sera pour 100g", value = "", width =NULL, placeholder =NULL  ),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
                           dateInput(inputId = "IdDate", label = "date de création", value =NULL,min =NULL, max =NULL, format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
                           dateInput(inputId ="IDdate", label="date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
