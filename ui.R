@@ -73,6 +73,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            DT::datatable(Tabledonnee)
                            ),
                   tabPanel(("La Calculette"), #Onglet de la calculette
+<<<<<<< HEAD
                            fluidRow(
                            br(),
                              p("Merci de ", strong("remplir tout les champs")," et ", strong("d'éditer")," la valeur nutritionel de votre recette :",style="color:black;text-align:justify"),
@@ -82,9 +83,14 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           textInput(inputId = "recette",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
                           fluidRow(column(dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6),
                                   column(dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
+=======
+                          textInput(inputId = "recette",label = "Nom de votre recette", value = "", width =NULL, placeholder=NULL),
+                          dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
+                          dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
+>>>>>>> b1aba0716eb6076371490f7b7fc82bd32a403970
                            wellPanel(
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                                         selected = F,choices =c(Tabledonnee$alim_nom_fr)),
+                                         selected = F,choices =c(Tabledonnee$nom)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                           value = 0, min = 0, max = F, step = 5)),
                           downloadButton("report", "Generer un rapport")),
