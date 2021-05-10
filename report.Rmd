@@ -33,9 +33,9 @@ Date de mise à jour : `r params$datemsj`
 # The `params` object is available in the document.
 params$nrecette
 ```
-Recette : `r params$nrecette`
+Nom de la recette : `r params$nrecette`
 
-# *Valeur nutritionnelle"
+# *Valeur nutritionnelle* :
 
 ```{r tableau, eval=TRUE, echo=TRUE}
 # The `params` object is available in the document.
