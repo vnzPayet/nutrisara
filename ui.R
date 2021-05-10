@@ -73,7 +73,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
                            wellPanel(
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                                         selected = F,choices =c(Tabledonnee$alim_nom_fr)),
+                                         selected = F,choices =c(Tabledonnee$nom)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                           value = 0, min = 0, max = F, step = 5)),
                           downloadButton("report", "Generer un rapport")),
