@@ -75,9 +75,8 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                                          selected = F,choices =c(Tabledonnee$alim_nom_fr)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
-                                          value = 0, min = 0, max = F, step = 5)),
-                          downloadButton("report", "Generer un rapport")),
-                  tabPanel("L'Analyse",tableOutput("Calctab")
+                                          value = 0, min = 0, max = F, step = 5))),
+                  tabPanel("L'Analyse",tableOutput("Calctab"),
                            )),
                   
                   hr(),
