@@ -17,8 +17,8 @@ shinyServer(function(input, output) {
     #tab %>% filter(alim_nom_fr==selection) %>% select(2)
     #reactive(input$ingre1)
         output$tab <-renderTable({tab %>% filter(nom==input$ingre1)}) 
-        #%>%  tab ["input$ingre1", 2] tab ["input$ingre1", 2]*input$gram1/100 })
-        #filter(nom==input$ingre1) 
+        #output$tab <-renderTable({tab %>% filter(nom==input$ingre1) %>% select(Eau)})# [input$ingre1, 2]}) #= tab ["input$ingre1", 2]*input$gram1/100 })
+        
     
     #output$listingre <- reactive(ingre1)
     #output$Calctab <- renderTable(Tableau <- filter(Tableau, alim_nom_fr == reactive(ingre1)))
