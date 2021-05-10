@@ -32,12 +32,11 @@ shinyServer(function(input, output) {
         filename = "report.pdf",
         content = function(file) {
             
-            tempReport <- file.path(tempdir(), "report.Rmd")
+            tempReport <- file.path(".\\www", "report.Rmd")
             file.copy("report.Rmd", tempReport, overwrite = TRUE)
             
             # Set up parameters to pass to Rmd document
-            params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$idrecette, tab = head(cars))
-            
+            params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
             # Knit the document, passing in the `params` list, and eval it in a
             # child of the global environment (this isolates the code in the document
             # from the code in this app).
@@ -53,3 +52,4 @@ shinyServer(function(input, output) {
                       to = paste0('Fiche_Recette_',paste0(params$nrecette),'.pdf'))
         })
 })
+
