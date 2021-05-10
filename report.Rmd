@@ -10,6 +10,14 @@ params:
   tab : NA
   nrecette : NA
 ---
+```{r setup, include=FALSE}
+library(knitr)
+```
+
+```{r logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("Logo.png")
+```
+&nbsp;
 
 # *Informations générales* :
 
@@ -37,7 +45,7 @@ Nom de la recette : `r params$nrecette`
 
 # *Valeur nutritionnelle* :
 
-```{r tableau, eval=TRUE, echo=TRUE}
+```{r tableau, eval=TRUE, echo=FALSE}
 # The `params` object is available in the document.
 knitr::kable(params$tab, caption = "Exemple de tableau")
 ```
