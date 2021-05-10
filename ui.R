@@ -68,9 +68,9 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            DT::datatable(Tabledonnee)
                            ),
                   tabPanel(("La Calculette"), #Onglet de la calculette
-                          textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
-                          dateInput(inputId = "IdDate", label = "date de création", value =NULL,min =NULL, max =NULL, format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
-                          dateInput(inputId ="IDdate", label="date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
+                          textInput(inputId = "recette",label = "Nom de votre recette", value = "", width =NULL, placeholder=NULL),
+                          dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
+                          dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="dd/mm/yyyy", startview ="month", weekstart =0, language ="FR"),
                            wellPanel(
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
                                          selected = F,choices =c(Tabledonnee$alim_nom_fr)),
