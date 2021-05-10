@@ -81,9 +81,12 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            )),
                   
                   hr(),
-                  p(em(strong("Developp par des étudiants de la Promo50 : Module Open ")),
-                  br("Brice Levasseur Théo Masselis Honorine Favet Marianne Manry Valentine Mouche Célia Devillard Benoit Barré  Mariama Issa Emma MANSON"),style ="text-align:center",
-                  br(tags$img(src="téléchargement.png",width="450px",height="150px"))),
-               ))      
+                  p(strong("Développé par des étudiants de la Promo50/ISARA : Module Open "),style ="text-align:center",
+                  br(
+                  p(em("Brice Levasseur Théo Masselis Honorine Favet Marianne Manry Valentine Mouche Célia Devillard"),
+                  p(em("Benoit Barré  Mariama Issa Emma MANSON"),style ="text-align:center"),style ="text-align:center"),
+                  p(tags$img(src="logoisara.jpg",width="150px",height="80px"),style ="text-align:center"))),
+                  hr(),
+            ))      
        
 
