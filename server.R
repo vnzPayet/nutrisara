@@ -30,21 +30,19 @@ shinyServer(function(input, output) {
     #PARTIE EXPORTATION EN PDF (noms a modifier)
 
     output$report <- downloadHandler(
-        filename = paste0('Fiche_Recette_',paste0(input$recette),'.pdf'),
+        filename = function() {
+            paste0('Fiche_Recette_',paste0(input$recette),'.pdf')
+        },
         content = function(file) {
             
             tempReport <- file.path(".\\www", "report.Rmd")
             file.copy("report.Rmd", tempReport, overwrite = TRUE)
             
             # Set up parameters to pass to Rmd document
-<<<<<<< HEAD
-            params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
-=======
-            params <- list(nom = "toto", dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
-            params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$idrecette, tab = head(cars))
 
-            
->>>>>>> c2ce1b7ca9bb29109fcfeb176c9d21e93a37d2dc
+            params <- list(nom = input$operateur, dateCre = input$idDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
+
+
             # Knit the document, passing in the `params` list, and eval it in a
             # Child of the global environment (this isolates the code in the document
             # from the code in this app).
