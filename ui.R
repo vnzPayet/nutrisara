@@ -18,7 +18,7 @@ library(dplyr)
 library(rmarkdown)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
-
+tab <- read.csv2("TabTest.csv", dec=",")
 
 shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
@@ -74,11 +74,13 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           dateInput(inputId ="IDdate", label="date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyy-mmm-ddd", startview ="month", weekstart =0, language ="FR"),
                            wellPanel(
                              selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                                         selected = F,choices =c(Tabledonnee$alim_nom_fr)),
+                                         selected = F,choices =c(Tabledonnee$nom)),
                              numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                           value = 0, min = 0, max = F, step = 5))),
                   tabPanel("L'Analyse",tableOutput("Calctab"),
+                           tableOutput(outputId = "tab")
                            )),
+                
                   
                   hr(),
                   p(strong("Développé par des étudiants de la Promo50/ISARA : Module Open "),style ="text-align:center",
