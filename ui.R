@@ -93,12 +93,13 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                     actionButton("act", "Ajouter un ingrédient"),
                     hr(),
                   
-                    mainPanel(plotOutput("scatterPlot")),
+                    
                   
                       downloadButton("report", "Générer un rapport")
                   ),
                   
-                  tabPanel("L'Analyse",tableOutput("tab")
+                  tabPanel("L'Analyse",tableOutput("tab"),
+                           plotOutput("scatterPlot"),
 
                            )),
                 
