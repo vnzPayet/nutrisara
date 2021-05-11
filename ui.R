@@ -82,7 +82,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
                           textInput(inputId = "operateur",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
                           fluidRow(column(dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6),
-                                  column(dateInput(inputId ="IDdate", label="Date de mise Ã  jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
+                                  column(dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
 
                            wellPanel(
                              fluidRow(column(selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
