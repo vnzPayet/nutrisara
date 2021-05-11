@@ -32,7 +32,7 @@ shinyServer(function(input, output) {
     #PARTIE EXPORTATION EN PDF (noms a modifier)
 
 ########################################################################################
-    library(dplyr)
+    'library(dplyr)
     
     tab <- read.csv2("TabTest.csv", dec=",", encoding = "latin1")
     head(tab)
@@ -64,7 +64,7 @@ shinyServer(function(input, output) {
     apply(tabsel, 2, function(x){x*qt})
     apply(tabsel, 2, function(x){sum(x*qt)})
     # check
-    0.454*2+2.301*3+3.8
+    0.454*2+2.301*3+3.8'
     
 ###################################################################################
 
@@ -93,11 +93,16 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
-            ##Graph proportions
-            #output$pointPlot <- renderPlot({ggplot(data = newtab2[,c(input$nom)]) +
-             #       geom_point(mapping = aes(x = name, y= value, color=nom))
-            #})
-            
+           
+            output$scatterPlot <- renderPlot({
+                #tabtest2<-read.csv2("Tabtest.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+                newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
+                colnames(newtab2)<-c("nomr", "class", "pourc")
+                #newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
+                newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
+                ggplot(data = newtab3) + 
+                    geom_point(mapping = aes(x = class, y = pourc))
+            })
         })
 })
 
