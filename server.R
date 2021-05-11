@@ -104,6 +104,15 @@ shinyServer(function(input, output) {
                 ggplot(data = newtab3) + 
                     geom_point(mapping = aes(x = class, y = pourc))
             })
+            
+            output$PlotEmpile <- renderPlot({
+                tabtest2<-read.csv2("Tab.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+                newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
+                colnames(newtab2)<-c("nomr", "class", "pourc")
+                newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
+                ggplot(data = newtab3, aes(x = nomr, y = pourc))+
+                    geom_col(aes(fill = class), width = 0.7)
+            })
         
 })
 
