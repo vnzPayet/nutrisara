@@ -83,24 +83,28 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            br(),
                              p("Merci de ", strong("remplir tout les champs")," et ", strong("d'éditer")," la valeur nutritionel de votre recette :",style="color:black;text-align:justify"),
                              style="background-color:#EAECEE;padding:20px; border-radius: 10px"),
-                  br(),
+                          br(),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
                           textInput(inputId = "operateur",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
                           fluidRow(column(dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6),
                                   column(dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
 
                            wellPanel(
-                             selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                                         selected = F,choices =c(Tabledonnee$nom)),
-                             numericInput(inputId = "gram1", label = "Sélectionner le grammage",
-
-                                          value = 0, min = 0, max = F, step = 5)),
+                             fluidRow(column(selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
+                                         selected = F,choices =c(Tabledonnee$nom)),width=8),
+                                      column(numericInput(inputId = "gram1", label = "Sélectionner le grammage",
+                                      value = 0, min = 0, max = F, step = 5),width=4)),
+                             ),
+                    actionButton("act", "Ajouter un ingrédient"),hr(),
+                  
                   ##Graphique proportions
                   #selectInput("nom", "ingredient",choices = c(newtab2[,1])),
                   #mainPanel(
                    # plotOutput("pointPlot"),
                   
-                          downloadButton("report", "Generer un rapport")),
+                      downloadButton("report", "Generer un rapport")
+                  ),
+                  
                   tabPanel("L'Analyse",tableOutput("tab")
 
                            )),
