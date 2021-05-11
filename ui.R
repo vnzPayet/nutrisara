@@ -97,12 +97,12 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                              ),
                     actionButton("act", "Ajouter un ingrédient"),hr(),
                   
-                  ##Graphique proportions
+                  ##Graphiques proportions
                   #selectInput("nom", "ingredient",choices = c(newtab2[,1])),
                   #mainPanel(
                    # plotOutput("pointPlot"),
                   
-                      downloadButton("report", "Generer un rapport")
+                      downloadButton("report", "Générer un rapport")
                   ),
                   
                   tabPanel("L'Analyse",tableOutput("tab")
