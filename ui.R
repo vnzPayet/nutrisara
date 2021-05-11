@@ -91,11 +91,12 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
                            wellPanel(
                              fluidRow(column(selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
-                                         selected = F,choices =c(Tabledonnee$nom)),width=8),
+                                         selected =F, choices =c(Tabledonnee$nom)),width=8),
                                       column(numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                       value = 0, min = 0, max = F, step = 5),width=4)),
                              ),
-                    actionButton("act", "Ajouter un ingrédient"),hr(),
+                    actionButton("act", "Ajouter un ingrédient"),
+                    hr(),
                   
                   ##Graphique proportions
                   #selectInput("nom", "ingredient",choices = c(newtab2[,1])),
