@@ -21,9 +21,9 @@ library(ggplot2)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
 tab <- read.csv2("TabTest.csv", dec=",")
-#tabtest2<-read.csv("Tabledonnee2.csv", header=TRUE, sep=";",encoding = "UTF-8")
-#newtab2<-pivot_longer(tabtest2,c("Eau","Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AG_satures","Sel"))
-#colnames(newtab2)<-c("nom","name","value")
+tabtest2<-read.csv2("Tab.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
+colnames(newtab2)<-c("nomr","class","pourc")
 
 shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
@@ -56,7 +56,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                      p(' Nom et Prénom',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" La date de création :",style="color:black;text-align:justify"),
                                      p(' AAAA/MM/JJ',style="color:grey;border:1px solid black;background-color:white"),
-                                     p(" La date de mise à jour :",style="color:black;text-align:justify"),
+                                     p(" La date de mise Ã  jour :",style="color:black;text-align:justify"),
                                      p(' AAAA/MM/JJ',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" Puis sélectionner le ou les types d'ingrédients et le ou leurs grammages (g):",style="color:black;text-align:justify"),
                                      column(p(' Ingrédients',style="color:grey;border:1px solid black;background-color:white"),width=6),
@@ -87,7 +87,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
                           textInput(inputId = "operateur",label = "Entrer votre nom d'opérateur", value = "", width =NULL, placeholder=NULL),
                           fluidRow(column(dateInput(inputId = "IdDate", label = "Date de création", value =NULL,min =NULL, max =NULL, format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6),
-                                  column(dateInput(inputId ="IDdate", label="Date de mise à jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
+                                  column(dateInput(inputId ="IDdate", label="Date de mise Ã  jour",value =NULL, min =NULL, max =NULL,format ="yyyy-mm-dd", startview ="month", weekstart =0, language ="FR"),width=6)),
 
                            wellPanel(
                              fluidRow(column(selectInput(inputId = "ingre1", label = "Sélectionner l'ingrédient ",
@@ -98,12 +98,9 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                     actionButton("act", "Ajouter un ingrédient"),
                     hr(),
                   
-                  ##Graphique proportions
-                  #selectInput("nom", "ingredient",choices = c(newtab2[,1])),
-                  #mainPanel(
-                   # plotOutput("pointPlot"),
+                    mainPanel(plotOutput("scatterPlot")),
                   
-                      downloadButton("report", "Generer un rapport")
+                      downloadButton("report", "Générer un rapport")
                   ),
                   
                   tabPanel("L'Analyse",tableOutput("tab")

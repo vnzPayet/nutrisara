@@ -17,10 +17,10 @@ shinyServer(function(input, output) {
     #tab %>% filter(alim_nom_fr==selection) %>% select(2)
     #reactive(input$ingre1)
     tab <- read.csv2("TabTest.csv", dec=",")
-    observe(label = gram1,x = input$gram1)
-    observeEvent(eventExpr = input$ingre1, tab%>%filter(nom==input$ingre1))
-    observeEvent(eventExpr = input$gram1, apply(tab, 1, function(x){5 %*% 2}))
-    output$tab <-renderTable({tab}) #%>% filter(nom==input$ingre1)}) 
+    #observe(label = gram1,x = input$gram1)
+    #observeEvent(eventExpr = input$ingre1, tab%>%filter(nom==input$ingre1))
+    #observeEvent(eventExpr = input$gram1, apply(tab, 1, function(x){5 %*% 2}))
+    output$tab <-renderTable({tab %>% filter(nom==input$ingre1)}) 
     #output$tab <-renderTable({tab}) %>% apply(tab, 1, function(x){x*input$gram1})})
         #output$tab <-renderTable({tab %>% filter(nom==input$ingre1) %>% select(Eau)})# [input$ingre1, 2]}) #= tab ["input$ingre1", 2]*input$gram1/100 })
         
@@ -29,8 +29,10 @@ shinyServer(function(input, output) {
     #output$introduction <-renderText({c("Nutrisara est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un argument selon sa quantité, afin d'obtenir une assiette équilibrée")})
     #output$calculette <-renderText({c("Entrer votre plat/recette et définissez vos quantités")})
     
-    ########################################################################################
-    library(dplyr)
+    #PARTIE EXPORTATION EN PDF (noms a modifier)
+
+########################################################################################
+    'library(dplyr)
     
     tab <- read.csv2("TabTest.csv", dec=",", encoding = "latin1")
     head(tab)
@@ -62,15 +64,9 @@ shinyServer(function(input, output) {
     apply(tabsel, 2, function(x){x*qt})
     apply(tabsel, 2, function(x){sum(x*qt)})
     # check
-    0.454*2+2.301*3+3.8
+    0.454*2+2.301*3+3.8'
     
-    ###################################################################################    
-
-    
-    
-    
-    
-    #PARTIE EXPORTATION EN PDF (noms a modifier)
+###################################################################################
 
     output$report <- downloadHandler(
         filename = function() {
@@ -97,11 +93,16 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
-            ##Graph proportions
-            #output$pointPlot <- renderPlot({ggplot(data = newtab2[,c(input$nom)]) +
-             #       geom_point(mapping = aes(x = name, y= value, color=nom))
-            #})
-            
+           
+            output$scatterPlot <- renderPlot({
+                #tabtest2<-read.csv2("Tabtest.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+                newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
+                colnames(newtab2)<-c("nomr", "class", "pourc")
+                #newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
+                newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
+                ggplot(data = newtab3) + 
+                    geom_point(mapping = aes(x = class, y = pourc))
+            })
         })
 })
 
