@@ -70,7 +70,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                   ),
                  
                   tabPanel(("La Base Ciqual"), #Onglet de la base Ciqual
-                           DT::datatable(Tabledonnee)
+                           DT ::datatable(Tabledonnee)
                            ),
                   tabPanel(("La Calculette"), #Onglet de la calculette
 
