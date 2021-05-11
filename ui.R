@@ -67,12 +67,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                    column(
                                      p("Cliquez sur l'onglet", strong("Calculette")," pour calculer la valeur nutritionnelle de votre assiette !",style="color:black; text-align:center"),width = 12,style="background-color:#3498DB; border-radius: 10px"
                                    )),
-                          br(),
-                          fluidRow(column(width = 4),
-                                    column(
-                                      p("Source des données : ",a(href="https://ciqual.anses.fr/",em(" La base Ciqual")),style="color:black; text-align:center"),width = 4,style="background-color:#EAECEE; border-radius: 10px")),
-                                    
-                                  ),
+                          ),
                  
                   tabPanel(("La Base Ciqual"), #Onglet de la base Ciqual
                            DT ::datatable(Tabledonnee)
@@ -113,7 +108,10 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                   br(
                   p(em("Brice Levasseur Théo Masselis Honorine Favet Marianne Manry Valentine Mouche Célia Devillard"),
                   p(em("Benoit Barré  Mariama Issa Emma MANSON"),style ="text-align:center"),style ="text-align:center"),
-                  p(tags$img(src="logoisara.png",width="150px",height="80px"),style ="text-align:center"))), hr(),
+                  p(tags$img(src="logoisara.png",width="150px",height="80px"),style ="text-align:center"))), 
+                  fluidRow(br(),
+                    p(strong("Source des données : ",a(href="https://ciqual.anses.fr/",em(" La base Ciqual")),style="color:bleue"),style="text-align:center"),width = 4,style="background-color:#EAECEE; border-radius: 10px"),
+                  hr(),
             ))      
        
 
