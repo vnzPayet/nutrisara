@@ -93,9 +93,10 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
+        })
            
             output$scatterPlot <- renderPlot({
-                #tabtest2<-read.csv2("Tabtest.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+                tabtest2<-read.csv2("Tabtest.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
                 newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
                 colnames(newtab2)<-c("nomr", "class", "pourc")
                 #newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
@@ -103,6 +104,6 @@ shinyServer(function(input, output) {
                 ggplot(data = newtab3) + 
                     geom_point(mapping = aes(x = class, y = pourc))
             })
-        })
+        
 })
 
