@@ -69,6 +69,8 @@ shinyServer(function(input, output) {
                 ggplot(data = newtab3) + 
                     geom_point(mapping = aes(x = class, y = pourc))
                 ggsave("scatterplot2.png")
+                tempReport <- file.path(".\\www", "scatterplot2.png")
+                file.copy("scatterplot2.png", tempReport, overwrite = TRUE)
             })
             
             output$PlotEmpile <- renderPlot({
@@ -88,7 +90,8 @@ shinyServer(function(input, output) {
                 ggplot(data = newtab3, aes(x = nomr, y = pourc))+
                     geom_col(aes(fill = class), width = 0.7)
                 ggsave("plotempile2.png")
-                
+                tempReport <- file.path(".\\www", "plotempile2.png")
+                file.copy("plotempile2.png", tempReport, overwrite = TRUE)
             })
             
 })
