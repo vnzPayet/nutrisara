@@ -6,3 +6,6 @@ Ne pas devoir passer par l'analyse pour devoir visuaiser les histo dans le rapor
 
 Avoir une sortie en tableau de valeur nutritionel conforme au reglement Inco pour utlisation profesionnelle
 
+Afficher le tableau dans le rapport
+
+Optimiser le code des graphiques et leur affichage
