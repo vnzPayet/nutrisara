@@ -51,10 +51,10 @@ knitr::kable(params$tab, caption = "Exemple de tableau")
 ```
 \newpage
 # *Proportions d'éléments* :
-```{r scatterplot, echo=FALSE, out.width = '50%'}
+```{r scatterplot, echo=FALSE, out.width = '100%'}
 knitr::include_graphics("scatterplot2.png")
 ```
 
-```{r plotempile, echo=FALSE, out.width = '50%'}
+```{r plotempile, echo=FALSE, out.width = '100%'}
 knitr::include_graphics("plotempile2.png")
 ```
