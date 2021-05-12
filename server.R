@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
             
             # Set up parameters to pass to Rmd document
 
-            params <- list(nom = input$operateur, dateCre = input$IdDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
+            params <- list(nom = input$operateur, dateCre = input$IdDate, datemsj = input$IDdate, nrecette = input$recette)
 
 
             # Knit the document, passing in the `params` list, and eval it in a
@@ -57,7 +57,11 @@ shinyServer(function(input, output) {
                 #newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
                 newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
                 ggplot(data = newtab3) + 
-                    geom_point(mapping = aes(x = class, y = pourc))
+                    geom_point(mapping = aes(x = class, y = pourc))+
+                    labs(title = "Proportion d'éléments",
+                         caption = "Nutrisara",
+                         y = "g/100g",
+                         x = "Elements")
             })
             
             output$scatterPlot2 <- renderPlot({
@@ -67,7 +71,11 @@ shinyServer(function(input, output) {
                 #newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
                 newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
                 ggplot(data = newtab3) + 
-                    geom_point(mapping = aes(x = class, y = pourc))
+                    geom_point(mapping = aes(x = class, y = pourc))+
+                    labs(title = "Proportion d'éléments",
+                         caption = "Nutrisara",
+                         y = "g/100g",
+                         x = "Elements")
                 ggsave("scatterplot2.png")
                 tempReport <- file.path(".\\www", "scatterplot2.png")
                 file.copy("scatterplot2.png", tempReport, overwrite = TRUE)
@@ -79,7 +87,11 @@ shinyServer(function(input, output) {
                 colnames(newtab2)<-c("nomr", "class", "pourc")
                 newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
                 ggplot(data = newtab3, aes(x = nomr, y = pourc))+
-                    geom_col(aes(fill = class), width = 0.7)
+                    geom_col(aes(fill = class), width = 0.7) +
+                labs(title = "Proportion d'éléments",
+                    caption = "Nutrisara",
+                    y = "g/100g",
+                    x = "Elements")
             })
             
             output$PlotEmpile2 <- renderPlot({
@@ -88,7 +100,11 @@ shinyServer(function(input, output) {
                 colnames(newtab2)<-c("nomr", "class", "pourc")
                 newtab3 <- filter(newtab2, newtab2$nomr == input$ingre1)
                 ggplot(data = newtab3, aes(x = nomr, y = pourc))+
-                    geom_col(aes(fill = class), width = 0.7)
+                    geom_col(aes(fill = class), width = 0.7) +
+                    labs(title = "Proportion d'éléments",
+                         caption = "Nutrisara",
+                         y = "g/100g",
+                         x = "Elements")
                 ggsave("plotempile2.png")
                 tempReport <- file.path(".\\www", "plotempile2.png")
                 file.copy("plotempile2.png", tempReport, overwrite = TRUE)

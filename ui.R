@@ -103,7 +103,8 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                   tabPanel("L'Analyse",tableOutput("tab"),
                            plotOutput("scatterPlot"),
                            plotOutput("PlotEmpile"),
-
+                           plotOutput("scatterPlot2"),
+                           plotOutput("PlotEmpile2"),
                            )),
                 
                   
