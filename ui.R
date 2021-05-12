@@ -34,7 +34,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                            fluidRow(
                                     
                                     br(),
-                                    p(strong("NutrISARA")," est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un ingrédient.", br(),"Pour vous permettre d'avoir des assietes équilibrés."),style="text-align:justify;color:#229954;background-color:#EAECEE;padding:20px;border-radius:10px"),
+                                    p(strong("NutrISARA")," est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un ingrédient.", br(),"Pour vous permettre d'avoir des assiettes équilibrées."),style="text-align:justify;color:#229954;background-color:#EAECEE;padding:20px;border-radius:10px"),
                                     br(),
                   
                           fluidRow(column(width=2),
@@ -50,7 +50,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                      width=10,style="background-color:#EAECEE;border-radius: 10px"),
                                      br(),
                                      column(
-                                     p(" Et pour uiliser notre calculette il vous suffriras d'enregister la dénomination de la recette :",style="color:black;text-align:justify"),
+                                     p(" Et pour utiliser notre calculette il vous suffira d'enregistrer la dénomination de la recette :",style="color:black;text-align:justify"),
                                      p('Dénomination de la recette',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" Le nom de l'opérateur :",style="color:black;text-align:justify"),
                                      p(' Nom et Prénom',style="color:grey;border:1px solid black;background-color:white"),
@@ -76,7 +76,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
 
                            fluidRow(
                            br(),
-                             p("Merci de ", strong("remplir tout les champs")," et ", strong("d'éditer")," la valeur nutritionel de votre recette :",style="color:black;text-align:justify"),
+                             p("Merci de ", strong("remplir tout les champs")," et ", strong("d'éditer")," la valeur nutritionelle de votre recette :",style="color:black;text-align:justify"),
                              style="background-color:#EAECEE;padding:20px; border-radius: 10px"),
                           br(),
                           textInput(inputId = "recette",label = "Entrer votre recette", value = "", width =NULL, placeholder=NULL),
