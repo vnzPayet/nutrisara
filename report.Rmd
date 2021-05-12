@@ -51,7 +51,10 @@ knitr::kable(params$tab, caption = "Exemple de tableau")
 ```
 
 Proportion d'éléments :
-```{r pierecette, eval=TRUE, echo=FALSE}
-# The `params` object is available in the document.
+```{r scatterplot, echo=FALSE, out.width = '50%'}
+knitr::include_graphics("scatterplot2.png")
+```
 
+```{r plotempile, echo=FALSE, out.width = '50%'}
+knitr::include_graphics("plotempile2.png")
 ```
