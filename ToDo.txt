@@ -2,10 +2,12 @@ Faire fonctionner le bouton : Ajouter d'autres ingrédients
 
 Calculer une moyenne des ingrédients ajouter 
 
-Ne pas devoir passer par l'analyse pour devoir visuaiser les histo dans le raport
+Ne pas devoir passer par l'analyse pour devoir visuaiser les histo dans le raport (si on met le bouton "export report" dans l'onglet analyse peut être que ça pourrait marcher)
 
 Avoir une sortie en tableau de valeur nutritionel conforme au reglement Inco pour utlisation profesionnelle
 
 Afficher le tableau dans le rapport
 
 Optimiser le code des graphiques et leur affichage
+
+Améliorer les graphiques (légendes, présentation...) et améliorer la présentation globale des informations du rapport pdf
