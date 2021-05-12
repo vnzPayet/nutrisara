@@ -14,7 +14,7 @@ library(shiny)
 shinyServer(function(input, output) {
 
    
-    tab <- read.csv2("TabTest.csv", dec=",")                  #Lecture du fichier csv contenant les données
+    tab <- read.csv2("Tab.csv", dec=",")                  #Lecture du fichier csv contenant les données
     output$tab <-renderTable({  #output du tableau
         tab %>% filter(nom==input$ingre1)})                   #filtrer le tableau d'analyse en fonction des ingrédients sélectionnés
         #tab %>% apply(tab, 2, function(x){x*input$gram1})})  #test non concluant
