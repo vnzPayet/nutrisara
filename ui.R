@@ -52,7 +52,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                      
                                    br(),
                                      column(
-                                     p(icon("tools")," Pour uiliser notre calculette il vous suffriras d'enregister la dénomination de la recette :",style="color:black;text-align:justify"),
+                                     p(icon("tools")," Pour uiliser notre calculette, il vous suffriras d'enregister la dénomination de la recette :",style="color:black;text-align:justify"),
                                      p('Dénomination de la recette',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" Le nom de l'opérateur :",style="color:black;text-align:justify"),
                                      p(' Nom et Prénom',style="color:grey;border:1px solid black;background-color:white"),
