@@ -49,8 +49,8 @@ Nom de la recette : `r params$nrecette`
 # The `params` object is available in the document.
 knitr::kable(params$tab, caption = "Exemple de tableau")
 ```
-
-Proportion d'éléments :
+\newpage
+# *Proportions d'éléments* :
 ```{r scatterplot, echo=FALSE, out.width = '50%'}
 knitr::include_graphics("scatterplot2.png")
 ```
