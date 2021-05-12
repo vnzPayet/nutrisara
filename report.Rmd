@@ -7,7 +7,6 @@ params:
   nom: NA
   dateCre: NA
   datemsj : NA
-  tab : NA
   nrecette : NA
 ---
 ```{r setup, include=FALSE}
@@ -43,12 +42,7 @@ params$nrecette
 ```
 Nom de la recette : `r params$nrecette`
 
-# *Valeur nutritionnelle* :
 
-```{r tableau, eval=TRUE, echo=FALSE}
-# The `params` object is available in the document.
-knitr::kable(params$tab, caption = "Exemple de tableau")
-```
 \newpage
 # *Proportions d'éléments* :
 ```{r scatterplot, echo=FALSE, out.width = '100%'}

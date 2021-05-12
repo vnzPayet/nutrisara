@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
             
             # Set up parameters to pass to Rmd document
 
-            params <- list(nom = input$operateur, dateCre = input$IdDate, datemsj = input$IDdate, nrecette = input$recette, tab = head(cars))
+            params <- list(nom = input$operateur, dateCre = input$IdDate, datemsj = input$IDdate, nrecette = input$recette)
 
 
             # Knit the document, passing in the `params` list, and eval it in a
