@@ -37,31 +37,33 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                     p(strong("NutrISARA")," est une application qui permet de calculer la valeur nutritionnelle d'un plat ou d'un ingrédient.", br(),"Pour vous permettre d'avoir des assietes équilibrés."),style="text-align:justify;color:#229954;background-color:#EAECEE;padding:20px;border-radius:10px"),
                                     br(),
                   
-                          fluidRow(column(width=2),
+                          fluidRow(
                                    column(
                                      h4(p("Comment calculer la valeur nutritionnelle de mon assiette ?",style="color:black;text-align:center")),
-                                     width=10,style="background-color:#3498DB;border-radius: 10px")),
+                                     width=12,style="background-color:#3498DB;border-radius: 10px")),
                           br(),
                           
                           fluidRow(column(width=2, icon("hand-point-right","fa-5x"),align="center"),
                                    column(
                                      br(),
-                                     p(strong("Pour calculer la valeur nutritionnelle"), " de votre assiette, vous aurez besoin de notre calculette !"),style="color:black;text-align:justify",
-                                     width=10,style="background-color:#EAECEE;border-radius: 10px"),
-                                     br(),
+                                     p(strong("Pour calculer la valeur nutritionnelle"), " de votre assiette, vous aurez besoin de notre calculette dans l'onglet", strong("La Calculette"), "!"),style="color:black;text-align:justify",
+                                     p("Vous avez également accès à la base ciqual dans l'onglet ",strong("La Base Ciqual.")),style="color:black;text-align:justify",width=9),
+                                     
+                                     
+                                   br(),
                                      column(
-                                     p(" Et pour uiliser notre calculette il vous suffriras d'enregister la dénomination de la recette :",style="color:black;text-align:justify"),
+                                     p(icon("tools")," Pour uiliser notre calculette il vous suffriras d'enregister la dénomination de la recette :",style="color:black;text-align:justify"),
                                      p('Dénomination de la recette',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" Le nom de l'opérateur :",style="color:black;text-align:justify"),
                                      p(' Nom et Prénom',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" La date de création :",style="color:black;text-align:justify"),
                                      p(' AAAA/MM/JJ',style="color:grey;border:1px solid black;background-color:white"),
-                                     p(" La date de mise Ã  jour :",style="color:black;text-align:justify"),
+                                     p(" La date de mise à jour :",style="color:black;text-align:justify"),
                                      p(' AAAA/MM/JJ',style="color:grey;border:1px solid black;background-color:white"),
                                      p(" Puis sélectionner le ou les types d'ingrédients et le ou leurs grammages (g):",style="color:black;text-align:justify"),
                                      column(p(' Ingrédients',style="color:grey;border:1px solid black;background-color:white"),width=6),
                                      column(p(' Grammages (g)',style="color:grey;border:1px solid black;background-color:white"),width=6),
-                                     width=10,style="background-color:#EAECEE;border-radius: 10px")),
+                                     width=12,style="background-color:#EAECEE;border-radius: 10px")),
                           br(),
                           fluidRow(
                                    column(
