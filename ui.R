@@ -90,7 +90,7 @@ shinyUI(fluidPage(theme = shinytheme("cerulean"),
                                       column(numericInput(inputId = "gram1", label = "Sélectionner le grammage",
                                       value = 0, min = 0, max = F, step = 5),width=4)),
                              ),
-                    actionButton("act", "Ajouter un ingrédient"),
+                    actionButton("add", "Ajouter un ingrédient"),
                     hr(),
                   
                     
