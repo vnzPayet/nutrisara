@@ -20,7 +20,7 @@ library(tidyr)
 library(ggplot2)
 
 Tabledonnee <- read_excel("Tabledonnee.xls")
-tab <- read.csv2("TabTest.csv", dec=",")
+tab <- read.csv2("Tab.csv", dec=",")
 tabtest2<-read.csv2("Tab.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
 newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
 colnames(newtab2)<-c("nomr","class","pourc")
