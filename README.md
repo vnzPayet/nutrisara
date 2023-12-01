@@ -1,2 +1,2 @@
 # nutrisara
-a shiny app for nutritional composition
+A shiny app for nutritional composition - students work
